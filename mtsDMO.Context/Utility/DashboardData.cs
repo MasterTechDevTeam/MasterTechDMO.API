@@ -9,14 +9,14 @@ namespace mtsDMO.Context.Utility
     {
         public DashboardData()
         {
-            Friends = new List<UserFriendData>();
+            Friends = new List<Connections>();
             Tasks = new List<SchedulerData>();
             Templates = new List<TemplateData>();
             Users = new List<UserProfile>();
             Roles = new List<OrgAssignedRoles>();
         }
 
-        public List<UserFriendData> Friends { get; set; }
+        public List<Connections> Friends { get; set; }
         public List<SchedulerData> Tasks { get; set; }
         public List<TemplateData> Templates { get; set; }
         public List<UserProfile> Users { get; set; }

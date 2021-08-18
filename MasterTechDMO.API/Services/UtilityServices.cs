@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using mtsDMO.Context.Utility;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
@@ -89,5 +88,20 @@ namespace MasterTechDMO.API.Services
                 EnableSsl = smtpSettings.EnableSsl,
             };
         }
-    }
+
+        private async Task<APICallResponse<SendSMSDataResponse>> SendMessage(string Phonenumber, string Message)
+        {
+            try
+            {
+
+            }
+            catch (Exception Ex)
+            {
+
+                var ex = Ex.Message;
+            }
+            return null;
+        }
+                        
+}
 }

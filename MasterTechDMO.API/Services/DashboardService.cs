@@ -20,17 +20,17 @@ namespace MasterTechDMO.API.Services
             _identityRoleManagementRepo = new IdentityRoleManagementRepo(serviceProvider, context);
         }
 
-        public async Task<APICallResponse<List<UserFriendData>>> GetFriendListAsync(Guid userId)
+        public async Task<APICallResponse<List<Connections>>> GetFriendListAsync(Guid userId)
         {
-            var callResponse = new APICallResponse<List<UserFriendData>>();
+            var callResponse = new APICallResponse<List<Connections>>();
             var dbFriendListCallResponse = await _dashboardRepo.GetFriendListAsync(userId);
 
             if (dbFriendListCallResponse.Respose != null)
             {
-                callResponse.Respose = new List<UserFriendData>();
+                callResponse.Respose = new List<Connections>();
                 foreach (var dbFriend in dbFriendListCallResponse.Respose)
                 {
-                    callResponse.Respose.Add(new UserFriendData
+                    callResponse.Respose.Add(new Connections
                     {
                         EmailId = dbFriend.EmailId,
                         Id = dbFriend.Id,

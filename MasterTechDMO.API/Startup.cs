@@ -1,25 +1,17 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
 using MasterTechDMO.API.Areas.Identity.Data;
 using MasterTechDMO.API.Helpers;
 using MasterTechDMO.API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.DataProtection;
-using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MTSharedAccessToken.Model;
 using MTSharedAccessToken.Services;
@@ -113,27 +105,6 @@ namespace MasterTechDMO.API
                     Type = SecuritySchemeType.ApiKey,
                     Scheme = "Bearer"
                 });
-
-
-
-                //c.AddSecurityRequirement(new OpenApiSecurityRequirement()
-                //{
-                //    {
-                //        new OpenApiSecurityScheme
-                //        {
-                //             Reference = new OpenApiReference
-                //             {
-                //                Type = ReferenceType.SecurityScheme,
-                //                Id = "Bearer"
-                //             },
-                //             Scheme = "oauth2",
-                //             Name = "Bearer",
-                //             In = ParameterLocation.Header,
-                //        },
-                //         new List<string>()
-                //    }
-                //});
-
                 c.OperationFilter<SwaggerPadlockFilter>();
             });
 

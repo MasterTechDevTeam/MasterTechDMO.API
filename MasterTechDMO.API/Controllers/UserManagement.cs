@@ -48,7 +48,7 @@ namespace MasterTechDMO.API.Controllers
         /// <returns>Return object of Ok(200)</returns>
         [HttpPost]
         [Route("registerUser")]
-        public async Task<IActionResult> RegisterUserAsync(UserRegistration user,[FromHeader] string returnUrl)
+        public async Task<IActionResult> RegisterUserAsync(UserRegistration user, [FromHeader] string returnUrl)
         {
             try
             {
@@ -103,7 +103,7 @@ namespace MasterTechDMO.API.Controllers
         /// <returns>Return object of Ok(200)</returns>
         [HttpGet]
         [Route("verifyUser")]
-        public async Task<IActionResult> VerifyUserAsync(string verificationCode,[FromHeader] string emailId)
+        public async Task<IActionResult> VerifyUserAsync(string verificationCode, [FromHeader] string emailId)
         {
             try
             {
@@ -144,6 +144,7 @@ namespace MasterTechDMO.API.Controllers
         {
             return Ok(await _userManagementServices.GetUserByEmailAsync(EmailId));
         }
+
 
         /// <summary>
         /// Return the user details of requested user
@@ -205,7 +206,7 @@ namespace MasterTechDMO.API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("sendResetPasswordMail/{EmailId}")]
-        public async Task<IActionResult> SendResetPasswordMailAsync(string EmailId,[FromHeader] string returnUrl)
+        public async Task<IActionResult> SendResetPasswordMailAsync(string EmailId, [FromHeader] string returnUrl)
         {
             //string returnURL = string.Empty;
             //if (Request.Headers.ContainsKey("returnUrl"))

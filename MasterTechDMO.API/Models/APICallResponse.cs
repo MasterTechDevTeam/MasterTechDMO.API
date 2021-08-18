@@ -9,7 +9,7 @@ namespace MasterTechDMO.API.Models
 	{
 		public bool IsSuccess { get; set; }
 		public string Status { get; set; }
-		public List<string> Message { get; set; }
+		public List<string> Message { get; set; } = new List<string>();
 		public T Respose { get; set; }
 	}
 }

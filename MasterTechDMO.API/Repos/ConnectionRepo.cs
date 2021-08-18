@@ -4,16 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using MasterTechDMO.API.Areas.Identity.Data;
 using MasterTechDMO.API.Models;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using mtsDMO.Context.Utility;
 
 namespace MasterTechDMO.API.Repos
 {
-    public class FriendListRepo : IFriendListRepo
+    public class ConnectionRepo : IConnectionRepo
     {
         private MTDMOContext _context;
-        public FriendListRepo(MTDMOContext context) => _context = context;
+        public ConnectionRepo(MTDMOContext context) => _context = context;
 
         public async Task<APICallResponse<bool>> AddOrUpdateFriendDataAsync(DMOUserFriendList friendData)
         {

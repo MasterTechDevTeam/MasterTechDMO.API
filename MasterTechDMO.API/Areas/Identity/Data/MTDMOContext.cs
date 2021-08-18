@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using mtsDMO.Context.Utility;
 
 namespace MasterTechDMO.API.Areas.Identity.Data
 {
@@ -23,6 +24,7 @@ namespace MasterTechDMO.API.Areas.Identity.Data
         public DbSet<DMOUserFriendList> DMOUserFriendList { get; set; }
         public DbSet<DMOTemplateData> DMOTemplateData { get; set; }
         public DbSet<DMOTaskScheduler> DMOTaskScheduler { get; set; }
+        public DbSet<Goals> DMOGoal { get; set; }
 
     }
 }

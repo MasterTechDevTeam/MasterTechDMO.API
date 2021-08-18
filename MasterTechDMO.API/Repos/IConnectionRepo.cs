@@ -1,14 +1,12 @@
 ﻿using MasterTechDMO.API.Areas.Identity.Data;
 using MasterTechDMO.API.Models;
-using mtsDMO.Context.Utility;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MasterTechDMO.API.Repos
 {
-    public interface IFriendListRepo
+    public interface IConnectionRepo
     {
         Task<APICallResponse<List<DMOUserFriendList>>> GetFriendListAsync(Guid userId);
 

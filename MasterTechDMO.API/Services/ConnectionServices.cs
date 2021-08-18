@@ -4,31 +4,30 @@ using MasterTechDMO.API.Repos;
 using mtsDMO.Context.Utility;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace MasterTechDMO.API.Services
 {
-    public class FriendListServices
+    public class ConnectionServices
     {
-        private IFriendListRepo _friendListRepo;
+        private IConnectionRepo _friendListRepo;
 
-        public FriendListServices(MTDMOContext context)
+        public ConnectionServices(MTDMOContext context)
         {
-            _friendListRepo = new FriendListRepo(context);
+            _friendListRepo = new ConnectionRepo(context);
         }
 
-        public async Task<APICallResponse<List<UserFriendData>>> GetFriendListAsync(Guid userId)
+        public async Task<APICallResponse<List<Connections>>> GetFriendListAsync(Guid userId)
         {
-            var callResponse = new APICallResponse<List<UserFriendData>>();
+            var callResponse = new APICallResponse<List<Connections>>();
             var dbFriendListCallResponse = await _friendListRepo.GetFriendListAsync(userId);
 
             if (dbFriendListCallResponse.Respose != null)
             {
-                callResponse.Respose = new List<UserFriendData>();
+                callResponse.Respose = new List<Connections>();
                 foreach (var dbFriend in dbFriendListCallResponse.Respose)
                 {
-                    callResponse.Respose.Add(new UserFriendData
+                    callResponse.Respose.Add(new Connections
                     {
                         EmailId = dbFriend.EmailId,
                         Id = dbFriend.Id,
@@ -44,13 +43,13 @@ namespace MasterTechDMO.API.Services
             return callResponse;
         }
 
-        public async Task<APICallResponse<UserFriendData>> GetFriendDataByEmailAsync(Guid userId, string friendEmailId)
+        public async Task<APICallResponse<Connections>> GetFriendDataByEmailAsync(Guid userId, string friendEmailId)
         {
-            var callResponse = new APICallResponse<UserFriendData>();
+            var callResponse = new APICallResponse<Connections>();
             var dbFriendCallResponse = await _friendListRepo.GetFriendDataByEmailAsync(userId, friendEmailId);
             if (dbFriendCallResponse.Respose != null)
             {
-                callResponse.Respose = new UserFriendData
+                callResponse.Respose = new Connections
                 {
                     EmailId = dbFriendCallResponse.Respose.EmailId,
                     Id = dbFriendCallResponse.Respose.Id,
@@ -65,7 +64,7 @@ namespace MasterTechDMO.API.Services
             return callResponse;
         }
 
-        public async Task<APICallResponse<bool>> AddOrUpdateFriendDataAsync(UserFriendData friendData)
+        public async Task<APICallResponse<bool>> AddOrUpdateFriendDataAsync(Connections friendData)
         {
             var dbFriendData = new DMOUserFriendList
             {
