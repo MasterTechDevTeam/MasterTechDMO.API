@@ -52,7 +52,7 @@ namespace MasterTechDMO.API.Controllers
         [HttpGet("remove/{goalId}")]
         public async Task<IActionResult> Remove(Guid goalId)
         {
-            return Ok(await _service.Remove(goalId))
+            return Ok(await _service.Remove(goalId));
         }
 
     }

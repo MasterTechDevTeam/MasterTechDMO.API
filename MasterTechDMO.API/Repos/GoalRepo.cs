@@ -76,7 +76,7 @@ namespace MasterTechDMO.API.Repos
             APICallResponse<List<Goals>> response = new APICallResponse<List<Goals>>();
             try
             {
-                var data = _context.DMOGoal.Where(x => x.UserId == userId).ToList();
+                var data = _context.DMOGoal.Where(x => x.UserId == userId && x.IsRemoved == false).ToList();
                 response.Message.Add($"{data.Count} goals found.");
                 response.IsSuccess = true;
                 response.Respose = data;
