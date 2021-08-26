@@ -25,6 +25,7 @@ namespace MasterTechDMO.API.Areas.Identity.Data
         public DbSet<DMOTemplateData> DMOTemplateData { get; set; }
         public DbSet<DMOTaskScheduler> DMOTaskScheduler { get; set; }
         public DbSet<Goals> DMOGoal { get; set; }
+        public DbSet<Journal> DMOJournals { get; set; }
 
     }
 }
