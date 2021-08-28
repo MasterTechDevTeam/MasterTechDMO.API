@@ -1,14 +1,18 @@
 ﻿using MasterTechDMO.API.Areas.Identity.Data;
 using MasterTechDMO.API.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using mtsDMO.Context.Utility;
 using System;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace MasterTechDMO.API.Controllers
 {
     [Route("api/[Controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class JournalController : Controller
     {
 

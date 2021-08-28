@@ -49,12 +49,13 @@ namespace MasterTechDMO.API.Repos
                 }
                 else
                 {
+                    dbJournal.Comment = journal.Comment;
                     dbJournal.IsRemoved = journal.IsRemoved;
                     dbJournal.UpdDT = DateTime.UtcNow.Date;
                 }
                 _context.SaveChanges();
 
-                response.Message.Add($"Record update successfully.");
+                response.Message.Add($"Journal update successfully.");
                 response.IsSuccess = true;
                 response.Respose = true;
                 response.Status = "Success";
@@ -95,7 +96,7 @@ namespace MasterTechDMO.API.Repos
             APICallResponse<Journal> response = new APICallResponse<Journal>();
             try
             {
-                var data = _context.DMOJournals.Find(id);
+                var data = _context.DMOJournals.Where(x=>x.Id == id && x.IsRemoved == false).FirstOrDefault();
                 if (data == null)
                 {
                     response.Message.Add("Oops! No Goal Found");
